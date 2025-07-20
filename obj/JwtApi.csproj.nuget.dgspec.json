@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\user\\JwtApi\\JwtApi.csproj": {}
+    "C:\\Users\\user\\Desktop\\JwtApi\\jwt\\JwtApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\user\\JwtApi\\JwtApi.csproj": {
+    "C:\\Users\\user\\Desktop\\JwtApi\\jwt\\JwtApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\user\\JwtApi\\JwtApi.csproj",
+        "projectUniqueName": "C:\\Users\\user\\Desktop\\JwtApi\\jwt\\JwtApi.csproj",
         "projectName": "JwtApi",
-        "projectPath": "C:\\Users\\user\\JwtApi\\JwtApi.csproj",
+        "projectPath": "C:\\Users\\user\\Desktop\\JwtApi\\jwt\\JwtApi.csproj",
         "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\user\\JwtApi\\obj\\",
+        "outputPath": "C:\\Users\\user\\Desktop\\JwtApi\\jwt\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -45,9 +45,37 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[8.0.4, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[8.0.17, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.4, )"
+            },
+            "Microsoft.IdentityModel.Tokens": {
+              "target": "Package",
+              "version": "[8.12.1, )"
+            },
+            "Pomelo.EntityFrameworkCore.MySql": {
+              "target": "Package",
+              "version": "[8.0.0, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
