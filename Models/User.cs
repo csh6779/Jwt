@@ -1,28 +1,33 @@
+#nullable enable
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace JwtApi.Models
 {
-    [Table("Users")]
+    [Table("user")]
     public class User
     {
         [Key]
+        [Required]
+        [Column("id")]
         public int Id { get; set; }
 
-        [Required]
-        [MaxLength(15)]
-        public string Username { get; set; } = string.Empty;
+        [Column("username")]
+        public string Name { get; set; } = String.Empty;
 
-        [Required]
+        [Column("user_id")]
+        public string UserId { get; set; } = string.Empty;
+
+        [Column("password")]
+        public string PasswordHash { get; set; } = string.Empty;
+
+        [Column("email")]
         public string Email { get; set; } = string.Empty;
 
-        [Required]
-        public string PasswordHash { get; set; } = string.Empty; // 비밀번호는 해시로 저장
+        [Column("phone")]
+        public string Phone { get; set; } = string.Empty;
 
-        [Required]
-        public string Role { get; set; } = "User"; // 기본 권한
-
-        [Required]
-        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+        [Column("role")]
+        public string Role { get; set; } = "User";
     }
 }

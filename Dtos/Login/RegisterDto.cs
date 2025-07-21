@@ -1,3 +1,5 @@
+namespace JwtApi.Dtos;
+
 public class RegisterRequestDto
 {
     public string Username { get; set; } = string.Empty;
