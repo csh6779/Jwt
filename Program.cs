@@ -3,6 +3,7 @@ using System.Reflection;
 using System.Security.Claims;
 using System.Text;
 using JwtApi.Data;
+using JwtApi.Exceptions;
 using JwtApi.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
@@ -109,6 +110,8 @@ builder
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
 {
+    options.EnableAnnotations();
+
     options.SwaggerDoc(
         "v1",
         new OpenApiInfo
@@ -184,6 +187,8 @@ app.Use(
         await next();
     }
 );
+app.UseMiddleware<ExceptionMiddleware>();
+app.UseRouting();
 app.UseAuthentication(); // 반드시 Authorization보다 먼저!
 app.UseAuthorization();
 

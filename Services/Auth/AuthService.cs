@@ -40,5 +40,17 @@ namespace JwtApi.Services
                 Role = user.Role,
             };
         }
+
+        public async Task<ServiceResponseDto> LoginResponseAsync(LoginRequestDto dto)
+        {
+            var result = await LoginAsync(dto);
+            if (result == null)
+                return new ServiceResponseDto(
+                    401,
+                    new { message = "아이디 또는 비밀번호가 일치하지 않습니다." }
+                );
+
+            return new ServiceResponseDto(200, result);
+        }
     }
 }

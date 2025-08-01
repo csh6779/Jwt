@@ -1,6 +1,7 @@
 using BCrypt.Net;
 using JwtApi.Data;
 using JwtApi.Dtos;
+using JwtApi.Exceptions;
 using JwtApi.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -22,16 +23,13 @@ namespace JwtApi.Services
 
         public async Task RegisterAsync(UserDto dto)
         {
-            // 1. 중복 검사
             if (await _context.Users.AnyAsync(u => u.UserId == dto.UserId))
             {
-                throw new InvalidOperationException("이미 존재하는 사용자 ID입니다.");
+                throw new BusinessException("이미 존재하는 사용자입니다.", 409);
             }
 
-            // 2. 비밀번호 해싱 (예시 - 실제 적용 시 보안 강화 필요)
-            var hashedPassword = dto.Password; // TODO: 실제로는 해싱 처리
+            var hashedPassword = dto.Password;
 
-            // 3. User 모델 매핑 및 저장
             var user = new User
             {
                 UserId = dto.UserId,
@@ -44,6 +42,23 @@ namespace JwtApi.Services
 
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
+        }
+
+        public async Task<ServiceResponseDto> RegisterResponseAsync(UserDto dto)
+        {
+            try
+            {
+                await RegisterAsync(dto);
+                return new ServiceResponseDto(200, new { message = "회원가입 완료!" });
+            }
+            catch (InvalidOperationException ex)
+            {
+                return new ServiceResponseDto(400, new { message = ex.Message });
+            }
+            catch (Exception ex)
+            {
+                return new ServiceResponseDto(500, new { message = $"서버 오류 : {ex.Message}" });
+            }
         }
     }
 }

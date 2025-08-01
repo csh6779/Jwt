@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "IbHTzsLSzXM=",
+  "dgSpecHash": "wbXn9WDQ0tc=",
   "success": true,
-  "projectFilePath": "C:\\Users\\user\\Desktop\\JwtApi\\jwt\\JwtApi.csproj",
+  "projectFilePath": "C:\\Users\\user\\Desktop\\JwtApi\\JWT\\JwtApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\user\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",

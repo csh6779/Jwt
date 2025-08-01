@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\user\\Desktop\\JwtApi\\jwt\\JwtApi.csproj": {}
+    "C:\\Users\\user\\Desktop\\JwtApi\\JWT\\JwtApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\user\\Desktop\\JwtApi\\jwt\\JwtApi.csproj": {
+    "C:\\Users\\user\\Desktop\\JwtApi\\JWT\\JwtApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\user\\Desktop\\JwtApi\\jwt\\JwtApi.csproj",
+        "projectUniqueName": "C:\\Users\\user\\Desktop\\JwtApi\\JWT\\JwtApi.csproj",
         "projectName": "JwtApi",
-        "projectPath": "C:\\Users\\user\\Desktop\\JwtApi\\jwt\\JwtApi.csproj",
+        "projectPath": "C:\\Users\\user\\Desktop\\JwtApi\\JWT\\JwtApi.csproj",
         "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\user\\Desktop\\JwtApi\\jwt\\obj\\",
+        "outputPath": "C:\\Users\\user\\Desktop\\JwtApi\\JWT\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
