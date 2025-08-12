@@ -87,5 +87,34 @@ namespace JwtApi.Controllers
                 }
             );
         }
+
+        [HttpPost("refresh")]
+        [AllowAnonymous]
+        [SwaggerOperation(
+            Summary = "Refresh Token",
+            Description = "Refresh Token을 이용해 새로운 Access Token을 발급받습니다.",
+            Tags = new[] { "로그인 및 회원가입" }
+        )]
+        [SwaggerResponse(200, "토큰 재발급 성공", typeof(LoginResponseDto))]
+        [SwaggerResponse(401, "Refresh Token이 유효하지 않음")]
+        public async Task<IActionResult> RefreshToken([FromBody] TokenRefreshRequestDto dto)
+        {
+            var response = await _authService.RefreshTokenAsync(dto.RefreshToken);
+            return StatusCode(response.StatusCode, response.Body);
+        }
+
+        [HttpPost("logout")]
+        [SwaggerOperation(
+            Summary = "Refresh Token삭제",
+            Description = "로그아웃시 refreshtoken을 삭제합니다.",
+            Tags = new[] { "로그인 및 회원가입" }
+        )]
+        [Authorize]
+        public async Task<IActionResult> Logout()
+        {
+            var userId = int.Parse(User.FindFirst("UserId")!.Value);
+            var response = await _authService.LogoutAsync(userId);
+            return StatusCode(response.StatusCode, response.Body);
+        }
     }
 }

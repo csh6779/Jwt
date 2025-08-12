@@ -1,6 +1,6 @@
 namespace JwtApi.Dtos;
 
-public class ServiceResponseDto
+public class ServiceResponseDto<T>
 {
     public int StatusCode { get; set; }
     public T Body { get; set; }

@@ -44,20 +44,23 @@ namespace JwtApi.Services
             await _context.SaveChangesAsync();
         }
 
-        public async Task<ServiceResponseDto> RegisterResponseAsync(UserDto dto)
+        public async Task<ServiceResponseDto<object>> RegisterResponseAsync(UserDto dto)
         {
             try
             {
                 await RegisterAsync(dto);
-                return new ServiceResponseDto(200, new { message = "회원가입 완료!" });
+                return new ServiceResponseDto<object>(200, new { message = "회원가입 완료!" });
             }
             catch (InvalidOperationException ex)
             {
-                return new ServiceResponseDto(400, new { message = ex.Message });
+                return new ServiceResponseDto<object>(400, new { message = ex.Message });
             }
             catch (Exception ex)
             {
-                return new ServiceResponseDto(500, new { message = $"서버 오류 : {ex.Message}" });
+                return new ServiceResponseDto<object>(
+                    500,
+                    new { message = $"서버 오류 : {ex.Message}" }
+                );
             }
         }
     }
